@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace Vega
 {
@@ -30,6 +31,7 @@ namespace Vega
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddAutoMapper();
 
             // Add framework services.
             services.AddMvc();
